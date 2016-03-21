@@ -6,7 +6,8 @@
     <artifactId>jenkins-web</artifactId>
     
     <packaging>jar</packaging>
-    <version>1.1-SNAPSHOT</version>
+    <!--<version>1.1-SNAPSHOT</version>-->
+    <version>2</version>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,6 +28,7 @@
         <!--<developerConnection>scm:svn:https://svn.mycompany.com/repos/myapplication/trunk/mycomponent/</developerConnection>-->
         <!--<connection>scm:git:git://github.com/username/project.git</connection>-->
         <developerConnection>scm:git:git@github.com:matheusmmcs/jenkins-nexus-test.git</developerConnection>
+        <url>https://github.com/matheusmmcs/jenkins-nexus-test</url>
     </scm>
     
     <build>

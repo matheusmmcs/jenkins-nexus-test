@@ -1,0 +1,77 @@
+
+########## Locais:
+
+Nexus:
+C:\Program Files\Apache Software Foundation\nexus-2.12.1-01-bundle\nexus-2.12.1-01\bin
+start nexus start
+
+Jenkins:
+C:\Program Files\Apache Software Foundation\apache-tomcat-7.0.67\bin
+startup
+
+Workspace Jenkins:
+C:\Desenvelvimento\JenkinsWorkspace\JenkinsTest\
+
+Projeto Teste:
+C:\Users\matheusmmcs\Documents\NetBeansProjects\jenkins-web
+
+
+########## Dicas:
+- Boas práticas na geração de release com Jenkins e Maven:
+http://labs.bsb.com/2014/02/better-maven-releases-with-jenkins/
+
+
+
+
+########## Instalar plugins no Jenkins:
+
+"Build Flow Extensions"
+"Build Graph View Plugin"
+
+
+
+
+########## Configurar novo pipeline:
+
+OBS:
+Usar workspace customizado;
+
+### 1- Reverter Alteracoes Locais:
+	svn revert
+	git reset --hard origin/master
+	"Clean before checkout"
+
+
+### 2- Sincronizar com Repositorio:
+	svn update
+	git checkout
+	"Advanced checkout behaviours"
+
+
+### 3- Sincronizar Projeto:
+- Com base no POM do projeto, são atualizadas as dependências (nexus);
+	mvn clean install -DsnapshotDependencyAllowed=false -Dmaven.test.failure.ignore=false
+
+
+### *Verificar Dependências:
+*	Ensuring there is no more SNAPSHOT dependencies
+
+
+### 4- Construir Aplicacao;
+	mvn package
+
+
+### *Testar Aplicação;
+*
+
+
+### 5- Criar TAG;
+	https://wiki.jenkins-ci.org/display/JENKINS/Subversion+Tagging+Plugin
+	It allows to create a post-build action where Tag Base URL, Tag Comment, and Tag Delete Comment can be configured. Let's assume your workspace directory is svn://repo/trunk. As Tag Base URL you'd configure tags/${JOB_NAME}-${BUILD_NUMBER}-${BUILD_ID}.
+
+	Maven post-step can be added, which such invocation of the Maven SCM plugin:  scm:checkin scm:tag -Dtag=TAG_NAME
+
+
+### 6- Deploy;
+	https://wiki.jenkins-ci.org/display/JENKINS/Publish+Over+SSH+Plugin
+
