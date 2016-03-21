@@ -15,6 +15,11 @@ C:\Desenvelvimento\JenkinsWorkspace\JenkinsTest\
 Projeto Teste:
 C:\Users\matheusmmcs\Documents\NetBeansProjects\jenkins-web
 
+Repositório Maven:
+C:\Users\matheusmmcs\.m2\repository\br\gov\pi\sefaz\test\jenkins-web
+
+
+
 
 ########## Dicas:
 - Boas práticas na geração de release com Jenkins e Maven:
